@@ -1,0 +1,21 @@
+// 分割手机号码的函数，将11位数字格式化为 `xxx-xxxx-xxxx`
+function splitPhone(str) {
+  // 如果传入的字符串长度不是 11，直接返回原字符串
+  if (str.length !== 11) return str;
+
+  // 将字符串按字符拆分成数组
+  var arr = str.split('');
+
+  // 在第4位插入一个短横线
+  arr.splice(3, 0, '-');
+  // 在第9位插入另一个短横线
+  arr.splice(8, 0, '-');
+
+  // 将数组重新拼接成字符串并返回
+  return arr.join('');
+}
+
+// 导出模块，提供给其他文件调用
+module.exports = {
+  splitPhone: splitPhone
+}
